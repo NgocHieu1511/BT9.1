@@ -1,12 +1,19 @@
 import { View, TextInput, StyleSheet } from "react-native";
 
-export default function CustomTextInput({ placeholder, secure }) {
+export default function CustomTextInput({
+  placeholder,
+  secure,
+  value,
+  onChangeText,
+}) {
   return (
     <View style={styles.container}>
       <TextInput
         placeholder={placeholder}
-        secureTextEntry={secure ? true : false} // ✅ FIX LỖI BOOLEAN
+        secureTextEntry={secure ? true : false}
         style={styles.input}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );
@@ -18,8 +25,9 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "black",
     borderRadius: 8,
-    padding: 12,
+    marginVertical: 10,
+    padding: 20,
   },
 });
